@@ -1,0 +1,27 @@
+{
+    "1": {
+        "nome": "Notebook",
+        "quantidade": 15,
+        "preço": 200
+    },
+    "2": {
+        "nome": "Cpu",
+        "quantidade": 15,
+        "preço": 25
+    },
+    "3": {
+        "nome": "Mouse",
+        "quantidade": 10,
+        "preço": 95
+    },
+    "4": {
+        "nome": "Headset",
+        "quantidade": 9,
+        "preço": 150
+    },
+    "5": {
+        "nome": "Mouse Pad",
+        "quantidade": 9,
+        "preço": 162
+    }
+}

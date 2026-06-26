@@ -10,4 +10,4 @@ if not func_crud.abrir_arquivo(arquivo):
     
     
     
-func_crud.menu_opcoes(arquivo, 'Eletronicos')
+func_crud.menu_opcoes(arquivo, 'Eletronicos full')
