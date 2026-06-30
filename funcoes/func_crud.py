@@ -145,4 +145,24 @@ def adicionar_produto(estoque):
 
 
 def deletar_produto(estoque):
-    print()
+    try:
+        from time import sleep
+        with open(estoque, 'r', encoding="utf=8") as arq:
+            estoque_produto = json.load(arq)
+            user = str(input('Qual produto deseja excluir do estoque[ID]:')).strip()
+            if user in estoque_produto:
+                print(f'Produto encontrado: {estoque_produto[user]["nome"]}')
+                print("Excluindo o produto...")
+                del estoque_produto[user]
+                sleep(3)
+                print("Excluido com sucesso!")
+                with open(estoque, 'w', encoding="utf=8") as arq:
+                    json.dump(estoque_produto, arq, indent= 4, ensure_ascii=False)
+                
+            else:
+                print("Produto não encontrado\nTente novamente!")    
+                return
+            
+    except Exception as error:
+        print(error)
+
