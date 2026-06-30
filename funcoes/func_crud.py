@@ -20,10 +20,10 @@ def criar_arquivo(estoque):
         print('Arquivo gerado com sucesso')
         
         
-def cabecalho(msg):
-    print("--" *len(msg))
-    print(msg.center (len(msg)* 2))
-    print("--" * len(msg))
+def cabecalho():
+    print("--"*15)
+    print('Eletronicos full '.center(30))
+    print("--"*15)
     
 
 
@@ -31,7 +31,7 @@ def menu_opcoes(estoque, msg):
     try:
         while True:
             from time import sleep
-            cabecalho(msg)
+            cabecalho()
             sleep(1)
             print("1 - Ver estoque")
             sleep(1)
