@@ -12,6 +12,7 @@ def criar_arquivo(estoque):
     try:
         with open(estoque, 'w', encoding="utf-8") as arq:
             pass
+        
     except Exception as error:
         print({error})
 
@@ -55,6 +56,7 @@ def menu_opcoes(estoque, msg):
                 deletar_produto(estoque)
             else:
                 print('Opção invalida!')  
+                
     except Exception as error:
         print(error)
         
@@ -70,6 +72,7 @@ def ver_estoque(estoque):
            for id, keys in estoque_produtos.items():
                sleep(1)
                print(f"{id:<5} {keys['nome']:<15} {keys['quantidade']:<14} R$:{keys['preço']:<10.2f}")
+               
     except Exception as error:
         print(error)
     
@@ -104,6 +107,7 @@ def atualizar_produto(estoque):
                 print(f'{estoque_produtos[user]['nome']} atualizado com sucesso')
             else:
                 print('Produto não encontrado!')    
+                
     except Exception as error:
         print(error)
 
@@ -138,7 +142,6 @@ def adicionar_produto(estoque):
 
     except Exception as error:
         print(error)
-
 
 
 def deletar_produto(estoque):
