@@ -1,8 +1,8 @@
 {
     "1": {
         "nome": "Notebook",
-        "quantidade": 15,
-        "preço": 200
+        "quantidade": 10,
+        "preço": 250
     },
     "2": {
         "nome": "Cpu",

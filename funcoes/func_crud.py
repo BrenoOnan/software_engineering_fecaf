@@ -31,12 +31,16 @@ def menu_opcoes(estoque, msg):
         while True:
             from time import sleep
             cabecalho(msg)
+            sleep(1)
             print("1 - Ver estoque")
+            sleep(1)
             print("2 - Atualizar produto")
+            sleep(1)
             print("3 - Adicionar produto")
+            sleep(1)
             print("4 - Deletar produto")
             print('--'*16)
-            opcao = str(input('Qual das opçoes[enter para sair]:')).strip()
+            opcao = str(input('Qual das opçoes[Enter para sair]:')).strip()
             if opcao == '':
                 print('Encerrando...')
                 sleep(1)
@@ -72,18 +76,17 @@ def ver_estoque(estoque):
     
 def atualizar_produto(estoque):   
     try:
-        ver_estoque(estoque)
         from time import sleep
         with open (estoque, 'r', encoding= 'utf=8') as arq:
             estoque_produtos = json.load(arq)
 
-            user = (str(input('Digite o produto a atualizar[ID:]:')))
+            user = (str(input('Digite o produto para atualizar[ID:]:')))
             print('Proucurando...')
             sleep(1)
             if user in estoque_produtos:
                 print(f'Produto selecionado: {estoque_produtos[user]['nome']}')
                 
-                nova_quantidade= input('Qual a nova quantidade do item:').strip()
+                nova_quantidade= input('Qual a nova quantidade :').strip()
                 
                 novo_preco = input('Qual o novo preço do item: ').strip()
                 
@@ -96,6 +99,8 @@ def atualizar_produto(estoque):
                 with open (estoque,'w', encoding='utf= 8') as arq:
                     json.dump(estoque_produtos, arq, indent= 4, ensure_ascii= False)
                 
+                print('Atualiazando...')
+                sleep(1)
                 print(f'{estoque_produtos[user]['nome']} atualizado com sucesso')
             else:
                 print('Produto não encontrado!')    
@@ -104,7 +109,36 @@ def atualizar_produto(estoque):
 
 
 def adicionar_produto(estoque):
-    print()
+    try:
+        from time import sleep
+        with open(estoque, 'r', encoding="utf-8") as arq:
+            estoque_produto = json.load(arq)
+            
+            user = str(input('Deseja adicionar qual produto:')).strip().capitalize()
+            if user == '':
+                print("Invalido!")
+                return
+            for linha in estoque_produto.values():
+                    if linha["nome"] == user:
+                        print(f'{user} ja existe!')
+                        return
+            else:
+                add_quantidade = int(input("Qual a quantidade a entrar em estoque:"))
+                add_preco = int(input('Qual o valor do item R$: '))
+                novo_id = str(len(estoque_produto)+ 1)
+                
+                estoque_produto[novo_id] = { 
+                                            "nome": user,
+                                            "quantidade": add_quantidade,
+                                            "preço": add_preco
+            }
+                with open(estoque, 'w', encoding= "utf=8") as arq:
+                    json.dump(estoque_produto, arq, indent= 4, ensure_ascii= False)
+                print(f'{user} adicionado com sucesso!')
+
+    except Exception as error:
+        print(error)
+
 
 
 def deletar_produto(estoque):
