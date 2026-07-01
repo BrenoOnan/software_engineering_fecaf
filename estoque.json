@@ -1,17 +1,17 @@
 {
     "1": {
         "nome": "Notebook",
-        "quantidade": 10,
-        "preço": 250
+        "quantidade": 7,
+        "preço": 2250
     },
     "2": {
-        "nome": "Cpu",
-        "quantidade": 14,
-        "preço": 25
+        "nome": "Cpu Montada",
+        "quantidade": 13,
+        "preço": 950
     },
     "3": {
         "nome": "Mouse",
-        "quantidade": 10,
+        "quantidade": 9,
         "preço": 95
     },
     "4": {
@@ -21,7 +21,17 @@
     },
     "5": {
         "nome": "Mouse Pad",
+        "quantidade": 7,
+        "preço": 80
+    },
+    "6": {
+        "nome": "Gabinete",
         "quantidade": 9,
-        "preço": 162
+        "preço": 190
+    },
+    "7": {
+        "nome": "Cadeira gamer",
+        "quantidade": 7,
+        "preço": 900
     }
 }

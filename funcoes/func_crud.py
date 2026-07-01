@@ -21,13 +21,19 @@ def criar_arquivo(estoque):
         
         
 def cabecalho():
-    print("--"*15)
-    print('Eletronicos full '.center(30))
-    print("--"*15)
+    print("--"*19)
+    print('Eletronicos full '.center(35))
+    print("--"*19)
     
 
 
-def menu_opcoes(estoque, msg):
+def senha_adm(password, estoque):
+    if password == 123:
+        menu_opcoes(estoque)
+    else:
+        print('Senha inválida!')
+
+def menu_opcoes(estoque):
     try:
         while True:
             from time import sleep
@@ -43,8 +49,6 @@ def menu_opcoes(estoque, msg):
             print('--'*16)
             opcao = str(input('Qual das opçoes[Enter para sair]:')).strip()
             if opcao == '':
-                print('Encerrando...')
-                sleep(1)
                 break
             elif opcao == '1':
                 ver_estoque(estoque)
@@ -71,7 +75,7 @@ def ver_estoque(estoque):
            print('-'*44)
            for id, keys in estoque_produtos.items():
                sleep(1)
-               print(f"{id:<5} {keys['nome']:<15} {keys['quantidade']:<14} R$:{keys['preço']:<10.2f}")
+               print(f"{id:<5} {keys['nome']:<15} {keys['quantidade']:<13} R$:{keys['preço']:<10.2f}")
                
     except Exception as error:
         print(error)
@@ -83,15 +87,15 @@ def atualizar_produto(estoque):
         with open (estoque, 'r', encoding= 'utf=8') as arq:
             estoque_produtos = json.load(arq)
 
-            user = (str(input('Digite o produto para atualizar[ID:]:')))
+            user = (str(input('Digite o produto para atualizar[ID:]:'))).strip()
             print('Proucurando...')
             sleep(1)
             if user in estoque_produtos:
                 print(f'Produto selecionado: {estoque_produtos[user]['nome']}')
                 
-                nova_quantidade= input('Qual a nova quantidade :').strip()
+                nova_quantidade= input('Qual a nova quantidade: ').strip()
                 
-                novo_preco = input('Qual o novo preço do item: ').strip()
+                novo_preco = input('Qual o novo preço do item R$: ').strip()
                 
                 if nova_quantidade != '':
                     estoque_produtos[user]['quantidade'] = int(nova_quantidade)
@@ -166,3 +170,39 @@ def deletar_produto(estoque):
     except Exception as error:
         print(error)
 
+def cliente_compras(estoque):
+    while True:
+        try:
+            from time import sleep
+            ver_estoque(estoque)
+            with open(estoque, 'r', encoding='utf=8')as arq:
+                estoque_produtos = json.load(arq)
+                
+                produto_comprar = str(input('Qual produto deseja comprar[ID]: ')).strip()
+                if produto_comprar == '':
+                    break
+                if produto_comprar in estoque_produtos:
+                    print(f"{estoque_produtos[produto_comprar]['nome']} selecionado")
+                    
+                    quantidade = int(input('Selecione a quantidade:'))
+                    if quantidade < estoque_produtos[produto_comprar]['quantidade']:
+                        
+                        valor = estoque_produtos[produto_comprar]['preço'] * quantidade
+                        estoque_produtos[produto_comprar]['quantidade'] += - quantidade
+                        
+                        print(f'Valor da compra R$:{valor:.2f}')
+                        print(f'Confirmando a compra...')
+                        sleep(3)
+                        print(f'Compra efetuada, volte sempre')
+                        with open (estoque, 'w', encoding='utf=8') as arq:
+                            json.dump(estoque_produtos, arq, indent=4, ensure_ascii=False)
+                        break
+                        
+                    else:
+                        print('Não temos essa quantidade em estoque\nTente novamente!')
+                else:
+                    print('Produto não encontrado, tente novamente')
+                                    
+            
+        except Exception as error:
+            print(error)
