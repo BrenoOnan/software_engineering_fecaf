@@ -49,6 +49,22 @@ Os produtos são armazenados em um arquivo JSON seguindo a estrutura abaixo:
     }
 }
 ```
+## 🆕 Alteração de Escopo
+
+Durante o desenvolvimento do projeto, foi realizada uma alteração de escopo a partir de uma nova solicitação do cliente.
+
+Inicialmente, o sistema possuía apenas funcionalidades voltadas ao gerenciamento administrativo do estoque. Posteriormente, foi solicitado o desenvolvimento de um módulo de compras para clientes.
+
+Com essa alteração, o sistema passou a permitir que o cliente:
+
+Visualize os produtos disponíveis no estoque;
+Selecione um produto pelo ID;
+Informe a quantidade desejada para compra;
+Receba o valor total da compra;
+Tenha a compra confirmada caso exista quantidade suficiente em estoque;
+Atualize automaticamente a quantidade disponível do produto após a compra.
+
+Essa funcionalidade ampliou o escopo inicial do projeto, tornando o sistema mais próximo de uma aplicação real de controle de estoque.
 
 ---
 
