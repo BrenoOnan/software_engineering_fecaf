@@ -26,9 +26,11 @@ def cabecalho():
     print("--"*19)
     
 
+def validar_senha_adm(password):
+    return password == 123
 
 def senha_adm(password, estoque):
-    if password == 123:
+    if validar_senha_adm(password):
         menu_opcoes(estoque)
     else:
         print('Senha inválida!')
@@ -175,7 +177,7 @@ def cliente_compras(estoque):
         try:
             from time import sleep
             ver_estoque(estoque)
-            with open(estoque, 'r', encoding='utf=8')as arq:
+            with open(estoque, 'r', encoding='utf=8') as arq:
                 estoque_produtos = json.load(arq)
                 
                 produto_comprar = str(input('Qual produto deseja comprar[ID]: ')).strip()
