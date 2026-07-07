@@ -30,6 +30,7 @@ def validar_senha_adm(password):
     return password == 123
 
 def senha_adm(password, estoque):
+    
     if validar_senha_adm(password):
         menu_opcoes(estoque)
     else:
@@ -75,6 +76,7 @@ def ver_estoque(estoque):
            print('-='*22)
            print(f'{"ID":<5} {"Produto":<15} {"Quantidade":<14} {"Preço":<10}')
            print('-'*44)
+           
            for id, keys in estoque_produtos.items():
                sleep(1)
                print(f"{id:<5} {keys['nome']:<15} {keys['quantidade']:<13} R$:{keys['preço']:<10.2f}")
@@ -181,8 +183,10 @@ def cliente_compras(estoque):
                 estoque_produtos = json.load(arq)
                 
                 produto_comprar = str(input('Qual produto deseja comprar[ID]: ')).strip()
+                
                 if produto_comprar == '':
                     break
+                
                 if produto_comprar in estoque_produtos:
                     print(f"{estoque_produtos[produto_comprar]['nome']} selecionado")
                     

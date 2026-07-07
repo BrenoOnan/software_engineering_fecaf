@@ -33,5 +33,10 @@
         "nome": "Cadeira gamer",
         "quantidade": 7,
         "preço": 900
+    },
+    "8": {
+        "nome": "Controle",
+        "quantidade": 12,
+        "preço": 155
     }
 }

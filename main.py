@@ -1,6 +1,7 @@
 from funcoes import func_crud
 import json
 from time import sleep
+
 arquivo = 'estoque.json'
 
 if not func_crud.abrir_arquivo(arquivo):
