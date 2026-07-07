@@ -1,6 +1,6 @@
 import json
 
-def abrir_arquivo(estoque): 
+def abrir_arquivo(estoque): #verifica se existe o arquivo e tenta abrir 
     try:
         a = open(estoque, 'r')
     except:
@@ -8,7 +8,7 @@ def abrir_arquivo(estoque):
     else:
         return True
     
-def criar_arquivo(estoque):
+def criar_arquivo(estoque): #cria o arquivo caso não haja arquivo
     try:
         with open(estoque, 'w', encoding="utf-8") as arq:
             pass
@@ -20,23 +20,23 @@ def criar_arquivo(estoque):
         print('Arquivo gerado com sucesso')
         
         
-def cabecalho():
+def cabecalho(): #cabeçalho da loja#
     print("--"*19)
     print('Eletronicos full '.center(35))
     print("--"*19)
     
 
-def validar_senha_adm(password):
+def validar_senha_adm(password): # função de validação da senha#
     return password == 123
 
-def senha_adm(password, estoque):
+def senha_adm(password, estoque): # verfica a senha 
     
     if validar_senha_adm(password):
         menu_opcoes(estoque)
     else:
         print('Senha inválida!')
 
-def menu_opcoes(estoque):
+def menu_opcoes(estoque): #função para abrir o menu de opçoes
     try:
         while True:
             from time import sleep
@@ -68,7 +68,7 @@ def menu_opcoes(estoque):
         print(error)
         
 
-def ver_estoque(estoque):
+def ver_estoque(estoque): #função para printar o estoque de forma tabular 
     try:
         from time import sleep
         with open(estoque, 'r', encoding="utf-8")  as arq:
@@ -85,7 +85,7 @@ def ver_estoque(estoque):
         print(error)
     
     
-def atualizar_produto(estoque):   
+def atualizar_produto(estoque): #função para atualizar o produto do estoque
     try:
         from time import sleep
         with open (estoque, 'r', encoding= 'utf=8') as arq:
@@ -120,7 +120,7 @@ def atualizar_produto(estoque):
         print(error)
 
 
-def adicionar_produto(estoque):
+def adicionar_produto(estoque): #função para adicionar novo produto
     try:
         from time import sleep
         with open(estoque, 'r', encoding="utf-8") as arq:
@@ -152,7 +152,7 @@ def adicionar_produto(estoque):
         print(error)
 
 
-def deletar_produto(estoque):
+def deletar_produto(estoque): #função para encontrar deletar produto do estoque 
     try:
         from time import sleep
         with open(estoque, 'r', encoding="utf=8") as arq:
@@ -174,7 +174,7 @@ def deletar_produto(estoque):
     except Exception as error:
         print(error)
 
-def cliente_compras(estoque):
+def cliente_compras(estoque): #função cliente, comprar produtos
     while True:
         try:
             from time import sleep
