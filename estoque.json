@@ -11,12 +11,12 @@
     },
     "3": {
         "nome": "Mouse",
-        "quantidade": 9,
+        "quantidade": 4,
         "preço": 95
     },
     "4": {
         "nome": "Headset",
-        "quantidade": 9,
+        "quantidade": 7,
         "preço": 150
     },
     "5": {
@@ -26,17 +26,12 @@
     },
     "6": {
         "nome": "Gabinete",
-        "quantidade": 9,
-        "preço": 190
+        "quantidade": 2,
+        "preço": 200
     },
     "7": {
         "nome": "Cadeira gamer",
         "quantidade": 7,
         "preço": 900
-    },
-    "8": {
-        "nome": "Controle",
-        "quantidade": 12,
-        "preço": 155
     }
 }
